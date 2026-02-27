@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Library Management System</h1>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="books">Books</button>
+            <button class="tab-button" data-tab="members">Members</button>
+            <button class="tab-button" data-tab="borrowings">Borrowings</button>
+        </div>
+
+        <!-- Books Tab -->
+        <div id="books-tab" class="tab-content active">
+            <button id="addBookBtn" class="btn primary">➕ Add New Book</button>
+            <div id="booksList" class="cards-grid"></div>
+        </div>
+
+        <!-- Members Tab -->
+        <div id="members-tab" class="tab-content">
+            <button id="addMemberBtn" class="btn primary">➕ Add New Member</button>
+            <div id="membersList" class="cards-grid"></div>
+        </div>
+
+        <!-- Borrowings Tab -->
+        <div id="borrowings-tab" class="tab-content">
+            <h2>Current Borrowings</h2>
+            <div id="borrowingsList" class="cards-grid"></div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="bookModalTitle">Add Book</h2>
+            <form id="bookForm">
+                <input type="hidden" id="bookId">
+                <div class="form-group">
+                    <label for="title">Title *</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author *</label>
+                    <input type="text" id="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" id="isbn">
+                </div>
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <input type="number" id="year">
+                </div>
+                <div class="form-group">
+                    <label for="totalCopies">Total Copies *</label>
+                    <input type="number" id="totalCopies" min="1" value="1" required>
+                </div>
+                <button type="submit" class="btn primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="memberModalTitle">Add Member</h2>
+            <form id="memberForm">
+                <input type="hidden" id="memberId">
+                <div class="form-group">
+                    <label for="memberName">Name *</label>
+                    <input type="text" id="memberName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID *</label>
+                    <input type="text" id="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone">
+                </div>
+                <button type="submit" class="btn primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="borrowModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Borrow Book</h2>
+            <form id="borrowForm">
+                <input type="hidden" id="borrowBookId">
+                <div class="form-group">
+                    <label for="memberSelect">Member *</label>
+                    <select id="memberSelect" required>
+                        <option value="">Select a member</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Due Date *</label>
+                    <input type="date" id="dueDate" required>
+                </div>
+                <button type="submit" class="btn primary">Borrow</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
